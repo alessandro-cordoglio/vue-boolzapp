@@ -18,17 +18,72 @@ body{
 }
 
 /* MAIN STYLE */
-/* left columm */
+/* left column -- first section  */
 .col_header{
     padding: 10px;
     background-color: #EAEAEA;
 }
+
 .main_propic img{
     border-radius: 50%;
-    width: 15%;
+    width: 45%;
 }
 .features_{
     font-size: 23px;
     color: #B1B1B1;
     float: left;
+    cursor: pointer;
+}
+/* left column -- second section  */
+.notify_popup{
+    background-color: #8EDAFC;
+}
+.notify_popup--pic{
+    color: #8EDAFC;
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+}
+.notify_did{
+    color: grey;
+    text-decoration: underline;
+    cursor: pointer;
+}
+/* left column -- third section(search)  */
+.left_input{
+    background-color: #EAEAEA;
+}
+.input_container{
+    border: 1px solid lightgray;
+    width: 100%;
+    background-color: white;
+
+}
+.input_img{
+    padding: 5px 30px;
+    border-right: 1px solid lightgray ;
+}
+.search{
+    width: 100%;
+}
+.search input{
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+}
+/* left column -- fourth section(chat list)  */
+.chat_list_container{
+    height: 100%;
+    overflow-y: scroll;
+    background-color: white;
+}
+.chat_person{
+    padding: 10px;
+}
+.chat_avatar img{
+    width: 12%;
+    border-radius: 50%;
 }
