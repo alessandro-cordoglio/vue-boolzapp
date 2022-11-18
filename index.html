@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="chat_list_container">
-                    <div class="chat_person d-flex" v-for="(contact) in contacts">
+                    <div class="chat_person d-flex" :class="active==index? 'chat_active' : ''" @click="activateChat(index)"  v-for="(contact,index) in contacts">
                         <div class="chat_avatar">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                         </div>
@@ -68,14 +68,14 @@
                 </div>
             </div>
 
-            <div class="right_column d-flex flex-column">
+            <div class="right_column d-flex flex-column" :class="active==index? 'active': 'deactive' " v-for="(contact, index) in contacts">
                 <div class="col_header d-flex justify-content-between align-items-center">
                    <div class="right_header--left d-flex">
                        <div class="right_header--propic">
-                           <img src="img/avatar_1.jpg" alt="">
+                           <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="contact.name">
                        </div>
                        <div class="ms-2 right_header--text">
-                            <div class="">Michele</div>
+                            <div class="">{{contact.name}}</div>
                             <small >Ultimo accesso</small>
                        </div> 
                    </div>
@@ -87,18 +87,13 @@
                 </div>
                 <div class="messages_container">
                     <div class="message sent">
-                        <div class="message_box ">
-                            PROVA
-                        </div>
-                    </div>
-                    <div class="message sent">
-                        <div class="message_box ">
-                           PROVA PROVA PROVA PROVA PROVA PROVA PROVA PROVA PROVA 
-                        </div>
-                    </div>
-                    <div class="message received">
-                        <div class="message_box ">
-                            RISPOSTA
+                        <div class="message_box">
+                            <div class="message_text">
+                               
+                            </div>
+                            <div class="message_date">
+                                <small></small>
+                            </div>
                         </div>
                     </div>
                 </div>
