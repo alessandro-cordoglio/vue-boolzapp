@@ -53,9 +53,16 @@
                     </div>
                 </div>
                 <div class="chat_list_container">
-                    <div class="chat_person" v-for="contact in contacts">
+                    <div class="chat_person d-flex" v-for="(contact) in contacts">
                         <div class="chat_avatar">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                        </div>
+                        <div class="ms-3 chat_info">
+                            <div class="chat_info--first d-flex justify-content-between">
+                                <span>{{contact.name}}</span>
+                                <small>12.00</small>
+                            </div>
+                            <small class="last_message">{{contact.messages[0].message}}</small>
                         </div>
                     </div>
                 </div>

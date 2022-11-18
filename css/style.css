@@ -82,8 +82,22 @@ body{
 }
 .chat_person{
     padding: 10px;
+    width: 100%;
+}
+.chat_avatar{
+    max-width: fit-content;
 }
 .chat_avatar img{
-    width: 12%;
+    width: 65px;
     border-radius: 50%;
+}
+.last_message{
+    color: #C6CBD5;
+}
+.chat_info{
+    width: 100%;
+}
+.chat_info--first small{
+    font-size: 12px;
+    color: #C6CBD5;
 }
