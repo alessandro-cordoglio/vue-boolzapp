@@ -99,7 +99,7 @@ input:focus{
     width: 100%;
 }
 .chat_person:not(:first-child){
-  
+    border-top: 1px solid lightgray;
 }
 .chat_avatar{
     max-width: fit-content;
