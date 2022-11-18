@@ -62,7 +62,7 @@
                                 <span>{{contact.name}}</span>
                                 <small>12.00</small>
                             </div>
-                            <small class="last_message">prova</small>
+                            <small  class="last_message">{{contact.messages[contact.messages.length-1].message}}</small>
                         </div>
                     </div>
                 </div>
@@ -86,10 +86,10 @@
                    </div>
                 </div>
                 <div class="messages_container">
-                    <div class="message sent">
+                    <div class="message"  v-for="message in contact.messages" :class="message.status">
                         <div class="message_box">
                             <div class="message_text">
-                               
+                               {{message.message}}
                             </div>
                             <div class="message_date">
                                 <small></small>
