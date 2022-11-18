@@ -16,7 +16,9 @@ body{
 .right_column{
     flex-grow: 1;
 }
-
+input:focus{
+    outline: none;
+}
 /* MAIN STYLE */
 /* left column -- first section (header)  */
 .col_header{
@@ -103,3 +105,25 @@ body{
 }
 
 /* right column -- first section(header) */
+.right_header--left img{
+    width: 49px;
+    border-radius: 50%;
+}
+.right_header--left small{
+    color: gray;
+    font-size: 13px;
+}
+/* right column -- second section(messages) */
+.messages_container{
+    background-image: url(../img/mine.jpg);
+    flex-grow: 1;
+}
+/* right column -- third section(input) */    
+.emoji_btn{
+    background-color: #EAEAEA;
+    padding: 20px 30px;
+    color: grey;
+}
+.footer_input{
+    width: 100%;
+}
