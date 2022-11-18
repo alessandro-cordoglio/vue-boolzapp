@@ -119,11 +119,20 @@ input:focus{
     flex-grow: 1;
 }
 /* right column -- third section(input) */    
-.emoji_btn{
-    background-color: #EAEAEA;
+.footer_input{
+    background-color: #EAEAEA;;
+}
+.emoji_btn, .mic_btn{
     padding: 20px 30px;
     color: grey;
 }
-.footer_input{
-    width: 100%;
+.footer_input--text{
+    flex-grow:1 ;
+}
+.footer_input--text input{
+   width: 100%;
+   border: none;
+   border-radius: 3px ;
+   height: 45px;
+   padding: 10px;
 }
