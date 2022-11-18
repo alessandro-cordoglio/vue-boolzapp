@@ -62,7 +62,8 @@
                                 <span>{{contact.name}}</span>
                                 <small>12.00</small>
                             </div>
-                            <small  class="last_message">{{contact.messages[contact.messages.length-1].message}}</small>
+                            <small v-if="contact.messages[contact.messages.length-1].status=='sent'"  class="last_message">&#x2713;&#x2713;   {{contact.messages[contact.messages.length-1].message}}</small>
+                            <small v-else class="last_message">{{contact.messages[contact.messages.length-1].message}}</small>
                         </div>
                     </div>
                 </div>
