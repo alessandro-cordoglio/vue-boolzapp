@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="chat_list_container">
-                    <div class="chat_person d-flex" :class="active==index? 'chat_active' : ''" @click="activateChat(index)"  v-for="(contact,index) in contacts">
+                    <div class="chat_person d-flex"   :class="active==index? 'chat_active' : ''" @click="activateChat(index)"  v-for="(contact,index) in contacts">
                         <div class="chat_avatar">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                         </div>
@@ -103,7 +103,7 @@
                         <i class="fs-4 fa-regular fa-face-smile"></i>
                     </div>
                     <div class="footer_input--text">
-                        <input type="text" v-on:keyup.enter="sendMessage()" name="message" id="messageText" placeholder="Scrivi un messaggio" v-model="newMessage">
+                        <input type="text" @keyup.enter="sendMessage(index)" name="message" id="messageText" placeholder="Scrivi un messaggio" v-model="newMessage">
                     </div>
                     <div class="mic_btn">
                         <i class="fs-5 fa-solid fa-microphone"></i>
