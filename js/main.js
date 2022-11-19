@@ -4,7 +4,6 @@ createApp({
   data() {
     return {
         newMessage:"",
-        date: new Date(),
         active:0,
         contacts: [
             {
@@ -176,14 +175,17 @@ createApp({
         this.active=index
     },
     sendMessage(){
+        
         if (!(this.newMessage==='')) {
-            this.contacts[this.active].messages.push({date:`${this.date.toLocaleTimeString()}`, message:`${this.newMessage}`, status:"sent" })
+            date= new Date()
+            this.contacts[this.active].messages.push({date:`${date.toLocaleTimeString()}`, message:`${this.newMessage}`, status:"sent" })
             setTimeout(this.receivedMessage, 2000)
             this.newMessage=""
         }
     },
     receivedMessage(){
-        this.contacts[this.active].messages.push({date:`${this.date.toLocaleTimeString()}`, message:`ok`, status:"received" })
+        date= new Date()
+        this.contacts[this.active].messages.push({date:`${date.toLocaleTimeString()}`, message:`ok`, status:"received" })
     }
   },
 }
