@@ -179,13 +179,19 @@ createApp({
         if (!(this.newMessage==='')) {
             date= new Date()
             this.contacts[this.active].messages.push({date:`${date.toLocaleTimeString()}`, message:`${this.newMessage}`, status:"sent" })
+            setTimeout(this.online, 1000)
             setTimeout(this.receivedMessage, 2000)
             this.newMessage=""
+            
+
         }
     },
     receivedMessage(){
         date= new Date()
         this.contacts[this.active].messages.push({date:`${date.toLocaleTimeString()}`, message:`ok`, status:"received" })
+    },
+    online(){
+        document.querySelector("#lastSeen").innerHTML="Online"
     }
   },
 }
