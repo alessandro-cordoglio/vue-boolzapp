@@ -48,12 +48,12 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
                         <div class="search">
-                            <input type="text" name="search" id="chatSearch" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" name="search" @keyup="searchChat" id="chatSearch" v-model="newSearch" placeholder="Cerca o inizia una nuova chat">
                         </div>
                     </div>
                 </div>
                 <div class="chat_list_container">
-                    <div class="chat_person d-flex"   :class="active==index? 'chat_active' : ''" @click="activateChat(index)"  v-for="(contact,index) in contacts">
+                    <div class="chat_person d-flex"  :class="contact.visible==true? 'active' : 'deactive'"  :class="active==index? 'chat_active' : ''" @click="activateChat(index)"  v-for="(contact,index) in contacts">
                         <div class="chat_avatar">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                         </div>

@@ -176,28 +176,33 @@ createApp({
         this.active=index
     },
     sendMessage(index){
-        
         if (!(this.newMessage==='')) {
             date= new Date()
             this.contacts[index].messages.push({date:`${date.toLocaleTimeString()}`, message:`${this.newMessage}`, status:"sent" })
-            setTimeout(this.online, 1000)
             setTimeout(this.receivedMessage, 2000, this.contacts[index])
+            setTimeout(this.online, 1000)
             this.newMessage=""
         }
     },
     receivedMessage(contact){
         date= new Date()
-        contact.messages.push({date:`${date.toLocaleTimeString()}`, message:`ok`, status:"received" })
+        contact.messages.push({date:`${date.toLocaleTimeString()}`, message:`ti prego lasciami stare`, status:"received" })
     },
     online(){
         document.querySelector("#lastSeen").innerHTML="Online"
     },
-    /* searchChat(){
-        if (condition) {
-            
-        }
-    } */
+        searchChat() {
+            console.log(this.newSearch)
+            filter = this.newSearch.toUpperCase();
+            for (i = 0; i < this.contacts.length; i++) {
+              txtValue = this.contacts[i].name
+              if (txtValue.toUpperCase().includes(filter)) {
+                this.contacts[i].visible=true
+              } else {
+                this.contacts[i].visible=false
+              }
+            }
+          }
+    }
   },
-}
-
 ).mount('#app')
