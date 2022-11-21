@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="chat_list_container">
-                    <div class="chat_person d-flex"  :class="contact.visible==true? 'active' : 'deactive'"  :class="active==index? 'chat_active' : ''" @click="activateChat(index)"  v-for="(contact,index) in contacts">
+                    <div class="chat_person d-flex"  :class="contact.visible==true? 'active' : 'deactive', active==index? 'chat_active' : ''"   @click="activateChat(index)"  v-for="(contact,index) in contacts">
                         <div class="chat_avatar">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                         </div>
