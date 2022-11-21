@@ -206,12 +206,6 @@ createApp({
                 }
             }
         },
-        separateDate(){
-            splitDate= message.date.split("")
-            splitTime= splitDate.split(":")
-            time=splitTime[2] + ":" + splitTime[3]
-            return time
-        }
     }
   },
 ).mount('#app')
