@@ -168,41 +168,53 @@ createApp({
                     },
                 ],
             }
-        ]
+        ],
     }
   },
-  methods:{
-    activateChat(index){
-        this.active=index
-    },
-    sendMessage(index){
-        if (!(this.newMessage==='')) {
+    methods:{
+        activateChat(index){
+            this.active=index
+        },
+        sendMessage(index){
+            if (!(this.newMessage==='')) {
+                date= new Date()
+                this.contacts[index].messages.push({date:`${date.toLocaleTimeString()}`, message:`${this.newMessage}`, status:"sent" })
+                setTimeout(this.receivedMessage, 2000, this.contacts[index])
+                setTimeout(this.online, 1000)
+                this.newMessage=""
+            }
+        },
+        receivedMessage(contact){
             date= new Date()
-            this.contacts[index].messages.push({date:`${date.toLocaleTimeString()}`, message:`${this.newMessage}`, status:"sent" })
-            setTimeout(this.receivedMessage, 2000, this.contacts[index])
-            setTimeout(this.online, 1000)
-            this.newMessage=""
-        }
-    },
-    receivedMessage(contact){
-        date= new Date()
-        contact.messages.push({date:`${date.toLocaleTimeString()}`, message:`ti prego lasciami stare`, status:"received" })
-    },
-    online(){
-        document.querySelector("#lastSeen").innerHTML="Online"
-    },
+            axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+            .then((response)=>{
+                messaggio=response.data.response
+            })  
+             
+            contact.messages.push({date:`${date.toLocaleTimeString()}`, message: messaggio, status:"received" })
+        },
+        online(){
+            document.querySelector("#lastSeen").innerHTML="Online"
+        },
         searchChat() {
             console.log(this.newSearch)
             filter = this.newSearch.toUpperCase();
             for (i = 0; i < this.contacts.length; i++) {
-              txtValue = this.contacts[i].name
-              if (txtValue.toUpperCase().includes(filter)) {
-                this.contacts[i].visible=true
-              } else {
-                this.contacts[i].visible=false
-              }
+                txtValue = this.contacts[i].name
+                if (txtValue.toUpperCase().includes(filter)) {
+                    this.contacts[i].visible=true
+                } else {
+                    this.contacts[i].visible=false
+                }
             }
-          }
+        },
+        separateDate(){
+            splitDate= this.contacts.date.split("")
+            splitTime= splitDate.split(":")
+            time=splitTime[2] + ":" + splitTime[3]
+            
+            return time
+        }
     }
   },
 ).mount('#app')
