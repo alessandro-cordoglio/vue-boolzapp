@@ -186,9 +186,9 @@ createApp({
         },
         receivedMessage(contact){
             date= new Date()
-            axios.get('https://api.chucknorris.io/jokes/random?"value"')
+            axios.get('https://api.chucknorris.io/jokes/random')
             .then((response)=>{
-                contact.messages.push({date:`${date.toLocaleTimeString()}`, message: response.data.response, status:"received" })
+                contact.messages.push({date:`${date.toLocaleTimeString()}`, message: response.data.value, status:"received" })
             })  
         },
         online(){
