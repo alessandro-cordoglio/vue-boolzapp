@@ -186,12 +186,10 @@ createApp({
         },
         receivedMessage(contact){
             date= new Date()
-            axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+            axios.get('https://api.chucknorris.io/jokes/random?"value"')
             .then((response)=>{
-                messaggio=response.data.response
+                contact.messages.push({date:`${date.toLocaleTimeString()}`, message: response.data.response, status:"received" })
             })  
-             
-            contact.messages.push({date:`${date.toLocaleTimeString()}`, message: messaggio, status:"received" })
         },
         online(){
             document.querySelector("#lastSeen").innerHTML="Online"
@@ -209,10 +207,9 @@ createApp({
             }
         },
         separateDate(){
-            splitDate= this.contacts.date.split("")
+            splitDate= message.date.split("")
             splitTime= splitDate.split(":")
             time=splitTime[2] + ":" + splitTime[3]
-            
             return time
         }
     }
